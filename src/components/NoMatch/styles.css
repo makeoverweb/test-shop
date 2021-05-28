@@ -1,0 +1,10 @@
+.nomatch {
+  display: flex;
+  max-width: 100vw;
+  min-height: 100%;
+  color: #97a3b4;
+  background-blend-mode: multiply;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
