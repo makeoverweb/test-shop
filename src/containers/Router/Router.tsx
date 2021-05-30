@@ -1,41 +1,30 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import { App } from "../../App";
-import { ROUTES } from "../../constants/routes";
-import { observer } from "mobx-react-lite";
-import { NoMatch } from "../../components/NoMatch";
-import { Error } from "../../components/Error";
-import { ProductsPage } from "../Pages/ProductsPage";
-import { OrderPage } from "../Pages/OrderPage/OrderPage";
 import { ErrorBoundary } from "react-error-boundary";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Error } from "../../components/Error";
+import { NoMatch } from "../../components/NoMatch";
+import { ROUTES } from "../../constants/routes";
+import { App } from "../Pages/App";
+import { CartPage } from "../Pages/CartPage/CartPage";
+import { OrderPage } from "../Pages/OrderPage/OrderPage";
+import { ProductsPage } from "../Pages/ProductsPage";
 
-const RouterContainer = observer(() => {
+const RouterContainer = () => {
   return (
     <ErrorBoundary FallbackComponent={Error}>
       <BrowserRouter>
-        {/* <App> */}
-        <Switch>
-          <Route path={ROUTES.PRODUCTS.ROUTE}>
-            {/* <Switch> */}
-            <Route
-              path={ROUTES.PRODUCTS.ROUTE}
-              exact
-              component={ProductsPage}
-            />
-            {/* </Switch> */}
-          </Route>
-          <Route path={ROUTES.PRODUCTS.ROUTE}>
-            <Switch>
-              <Route path={ROUTES.ORDER.ROUTE} exact component={OrderPage} />
-            </Switch>
-          </Route>
+        <App>
+          <Switch>
+            <Route path={ROUTES.ROOT.ROUTE} exact component={ProductsPage} />
+            <Route path={ROUTES.ORDER.ROUTE} exact component={OrderPage} />
+            <Route path={ROUTES.CART.ROUTE} exact component={CartPage} />
 
-          <Route path={"/nomatch"} component={NoMatch} />
-          <Route component={NoMatch} />
-        </Switch>
-        {/* </App> */}
+            <Route path={"/nomatch"} component={NoMatch} />
+            <Route component={NoMatch} />
+          </Switch>
+        </App>
       </BrowserRouter>
     </ErrorBoundary>
   );
-});
+};
 
 export { RouterContainer };
