@@ -12,8 +12,35 @@
   height: 50px;
 }
 .header__menu {
-  width: 20%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header__menu a {
+  text-decoration: none;
+  color: #737270;
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.menu__cart {
+  position: relative;
+}
+
+.menu__cart--count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  font-size: 10px;
+  height: 20px;
+  background-color: #ed2a44;
+  border-radius: 50%;
+  color: antiquewhite;
+  bottom: -13px;
+  right: -16px;
+  position: absolute;
 }

@@ -23,6 +23,7 @@ const Button: React.ElementType<IButton> = (props: IButton) => {
       style={style}
       className={className}
       disabled={props.disabled}
+      {...props}
     >
       {props.children || props.text}
     </button>

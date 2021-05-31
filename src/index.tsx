@@ -1,11 +1,10 @@
-import { lazy, Suspense } from "react";
+import { RouterContainer } from "containers/Router";
 import ReactDOM from "react-dom";
-import { Preloader } from "./components/Preloader";
-import "./static/styles/global.css";
-import createSagaMiddleware from "redux-saga";
-import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
-import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
+import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
+import createSagaMiddleware from "redux-saga";
+import "./static/styles/global.css";
 import { reducer } from "./store/reducer";
 import rootSaga from "./store/rootSaga";
 
@@ -19,18 +18,10 @@ export const store = createStore(
 
 sagaMiddleware.run(rootSaga);
 
-const LazyRouter = lazy(() =>
-  import("./containers/Router").then(({ RouterContainer }) => ({
-    default: RouterContainer,
-  }))
-);
-
 const container = document.getElementById("root");
 ReactDOM.render(
   <Provider store={store}>
-    <Suspense fallback={<Preloader />}>
-      <LazyRouter />
-    </Suspense>
+    <RouterContainer />
   </Provider>,
   container
 );

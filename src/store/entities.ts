@@ -1,8 +1,5 @@
-import { TStateCart } from "./cart/entities";
-import { TStateProducts } from "./products/entities";
+import { TStateShop } from "./shop/entities";
 
 export interface TState {
-  products: TStateProducts;
-  cart: TStateCart;
-  orders: any;
-};
+  shop: TStateShop;
+}

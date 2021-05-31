@@ -41,3 +41,17 @@
 .button--delete:active {
   background-color: #cc0000;
 }
+.button--delete:disabled {
+  background-color: #9e9e9e;
+}
+
+.button--default {
+  background-color: #bdbdbd;
+}
+
+.button--default:hover {
+  background-color: #e0e0e0;
+}
+.button--default:active {
+  background-color: #9e9e9e;
+}

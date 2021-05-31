@@ -1,9 +1,9 @@
 import { ReactElement, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductsAction } from "../../../store/products/actions";
-import { getProductsData } from "../../../store/products/selectors";
-import { TProduct } from "../../../store/products/entities";
-import { Button } from "../../../components/Button";
+import { getProductsAction } from "../../../store/shop/actions";
+import { TProduct } from "../../../store/shop/entities";
+import { getProductsData } from "../../../store/shop/selectors";
+import Product from "./Product";
 import "./styles.css";
 
 interface IProductsPage {}
@@ -19,12 +19,7 @@ function ProductsPage({}: IProductsPage): ReactElement {
   return (
     <div className="products__list">
       {productsData.map((item: TProduct) => (
-        <div key={item.id} className="products__item product">
-          <span className="product__name">{item.title}</span>
-          <span className="product__score">доступно: {5}</span>
-          <Button className="button">Добавить</Button>
-          <Button className="button--delete">Удалить</Button>
-        </div>
+        <Product data={item} key={item._id} />
       ))}
     </div>
   );

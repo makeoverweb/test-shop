@@ -11,6 +11,6 @@ function* productsSaga({ payload: { path, params } }: any): any {
   }
 }
 
-export function* watchProducts() {
+export function* watchShop() {
   yield takeEvery(getProductsAction.request, productsSaga);
 }

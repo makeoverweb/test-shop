@@ -17,7 +17,7 @@ const ROUTES: Routes = {
     ROUTE: `${ROUTE_INIT}/`,
     NAME: "home",
   },
-  ORDER: {
+  ORDERS: {
     ROUTE: `${ROUTE_INIT}/order`,
     NAME: "order",
   },
