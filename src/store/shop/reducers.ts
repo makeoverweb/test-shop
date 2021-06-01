@@ -1,6 +1,12 @@
 import { TProduct } from "store/shop/entities";
 import { createReducer, getType } from "typesafe-actions";
-import { addToCart, getProductsAction, deleteFromCart } from "./actions";
+import {
+  addToCart,
+  getProductsAction,
+  deleteFromCart,
+  addOrderAction,
+  getOrdersAction,
+} from "./actions";
 import { TStateShop } from "./entities";
 
 const initialState: TStateShop = {
@@ -9,6 +15,7 @@ const initialState: TStateShop = {
   orders: { data: [], loading: false, error: null },
 };
 const shopReducer = createReducer<TStateShop>(initialState, {
+  // запрос данных о продукции
   [getType(getProductsAction.request)]: (state) => ({
     ...state,
     products: { ...state.products, loading: true },
@@ -23,6 +30,22 @@ const shopReducer = createReducer<TStateShop>(initialState, {
   [getType(getProductsAction.failure)]: (state, { payload }) => ({
     ...state,
     products: { ...state.products, loading: false, error: payload },
+  }),
+  // получение списка заказов
+  [getType(getOrdersAction.request)]: (state) => ({
+    ...state,
+    orders: { ...state.orders, loading: true },
+  }),
+  [getType(getOrdersAction.success)]: (state, { payload }) => ({
+    ...state,
+    orders: {
+      ...state.orders,
+      data: payload,
+    },
+  }),
+  [getType(getOrdersAction.failure)]: (state, { payload }) => ({
+    ...state,
+    orders: { ...state.orders, loading: false, error: payload },
   }),
 
   // добавление товара в корзину
@@ -48,7 +71,6 @@ const shopReducer = createReducer<TStateShop>(initialState, {
     const idxCartEl = state.cart.data.findIndex(
       (el: TProduct) => el._id === payload
     );
-
     return {
       ...state,
       cart: {
@@ -74,5 +96,23 @@ const shopReducer = createReducer<TStateShop>(initialState, {
       },
     };
   },
+
+  // добавление заказа
+  [getType(addOrderAction.request)]: (state) => ({
+    ...state,
+    orders: { ...state.orders, loading: true },
+    cart: { ...state.cart, data: [], total: 0 },
+  }),
+  [getType(addOrderAction.success)]: (state, { payload }) => ({
+    ...state,
+    orders: {
+      ...state.orders,
+      data: payload,
+    },
+  }),
+  [getType(addOrderAction.failure)]: (state, { payload }) => ({
+    ...state,
+    orders: { ...state.orders, loading: false, error: payload },
+  }),
 });
 export default shopReducer;

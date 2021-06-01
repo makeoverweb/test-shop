@@ -5,8 +5,9 @@ import { NoMatch } from "../../components/NoMatch";
 import { ROUTES } from "../../constants/routes";
 import { App } from "../App";
 import { CartPage } from "../Pages/CartPage/CartPage";
-import { OrdersPage } from "../Pages/OrderPage/OrderPage";
+import { OrdersPage } from "../Pages/OrdersPage/OrdersPage";
 import { ProductsPage } from "../Pages/ProductsPage";
+import { HomePage } from "../Pages/HomePage";
 
 const RouterContainer = () => {
   return (
@@ -14,7 +15,12 @@ const RouterContainer = () => {
       <BrowserRouter>
         <App>
           <Switch>
-            <Route path={ROUTES.ROOT.ROUTE} exact component={ProductsPage} />
+            <Route path={ROUTES.HOME.ROUTE} exact component={HomePage} />
+            <Route
+              path={ROUTES.PRODUCTS.ROUTE}
+              exact
+              component={ProductsPage}
+            />
             <Route path={ROUTES.ORDERS.ROUTE} exact component={OrdersPage} />
             <Route path={ROUTES.CART.ROUTE} exact component={CartPage} />
 

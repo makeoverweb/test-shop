@@ -1,9 +1,12 @@
-function parseProxy(proxy: any) {
-  try {
-    return JSON.parse(JSON.stringify(proxy));
-  } catch (e) {
-    return null;
-  }
+function calculateTotal(arr: string[]) {
+  return arr.reduce(
+    (acc, el) => acc + Math.round(Number(el.replace("$", "").replace(",", ""))),
+    0
+  );
 }
 
-export { parseProxy };
+function transformSumToString(num: number) {
+  return `$ ${num}`;
+}
+
+export { calculateTotal, transformSumToString };

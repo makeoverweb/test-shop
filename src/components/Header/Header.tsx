@@ -11,12 +11,12 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header__inner">
-        <Link to={ROUTES.ROOT.ROUTE}>
+        <Link to={ROUTES.HOME.ROUTE}>
           <img src={logo} alt="logo" className="header__logo" />
         </Link>
         <div className="header__menu">
           <NavLink
-            to={ROUTES.ROOT.ROUTE}
+            to={ROUTES.PRODUCTS.ROUTE}
             activeClassName="menu--active"
             className="menu__products"
           >

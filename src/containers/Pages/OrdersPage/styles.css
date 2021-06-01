@@ -1,0 +1,52 @@
+.orders__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  gap: 20px;
+}
+
+.order__item {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid grey;
+}
+
+.orders__user-name {
+  margin-left: 30px;
+  font-weight: bold;
+}
+.orders__user-phone {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.orders__modal-wrapper {
+  display: flex;
+}
+
+.orders__modal-list {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.orders__modal-item {
+  margin-bottom: 10px;
+}
+
+.orders__modal-item span {
+  margin-left: 10px;
+}
+
+.orders__modal-left {
+  margin-right: 20px;
+}
+
+.orders__modal-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.orders__modal-name {
+  margin-bottom: 20px;
+}

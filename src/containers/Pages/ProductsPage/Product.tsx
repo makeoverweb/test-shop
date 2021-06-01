@@ -5,7 +5,7 @@ import { addToCart, deleteFromCart } from "store/shop/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartData } from "store/shop/selectors";
 
-interface IProduct {
+export interface IProduct {
   data: {
     _id: string;
     price: string;

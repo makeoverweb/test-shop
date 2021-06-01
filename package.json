@@ -29,11 +29,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server database/index.json --port 3001 --routes database/routes.json"
+    "server": "json-server database/index.json --port 3001",
+    "dev": "concurrently \"yarn run server\" \"yarn run start\""
   },
   "eslintConfig": {
     "extends": [

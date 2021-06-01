@@ -25,23 +25,23 @@ class ApiCall {
     return await this.perform(`${path}${qs.stringify(searchParams)}`);
   }
 
-  async post(path: string, payload: any) {
-    return await this.perform(path, payload, {
+  async post(path: string, data: any) {
+    return await this.perform(path, data, {
       method: "POST",
     });
   }
 
-  async put(path: string, payload: any) {
+  async patch(path: string, payload: any) {
     return await this.perform(path, payload, {
-      method: "PUT",
+      method: "PATCH",
     });
   }
 
-  async delete(path: string) {
-    return await this.perform(path, null, {
-      method: "DELETE",
-    });
-  }
+  // async delete(path: string) {
+  //   return await this.perform(path, null, {
+  //     method: "DELETE",
+  //   });
+  // }
 }
 
 const Api = new ApiCall(ENDPOINT);

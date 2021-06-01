@@ -10,7 +10,11 @@ export interface TStateShop {
     error: Error | null;
     total: number;
   };
-  orders: { data: TProduct[]; loading: boolean; error: Error | null };
+  orders: {
+    data: TOrderRes[];
+    loading: boolean;
+    error: Error | null;
+  };
 }
 
 export interface TProduct {
@@ -20,4 +24,15 @@ export interface TProduct {
   title: string;
   description: string;
   available: number;
+}
+export interface TOrderRes {
+  userName: string;
+  userPhone: string;
+  products: TProduct[];
+  id: string;
+}
+export interface TOrderReq {
+  userName: string;
+  userPhone: string;
+  products: TProduct[];
 }

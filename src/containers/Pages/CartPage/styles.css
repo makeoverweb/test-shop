@@ -1,8 +1,96 @@
 .cart__wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .cart__total {
-  align-self: flex-end;
+  font-weight: bold;
+}
+
+.cart__price {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.cart__item {
+  width: 100%;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 20px;
+}
+
+.cart__inner {
+  cursor: pointer;
+}
+.cart__name {
+  font-size: 24px;
+}
+.cart__img {
+  display: block;
+}
+
+.form {
+  padding-top: 53px;
+  padding-bottom: 65px;
+}
+
+.form__main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__title {
+  margin-bottom: 30px;
+}
+
+.form__contacts {
+  margin-bottom: 44px;
+  width: 100%;
+}
+
+.form__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.form__input {
+  width: 60%;
+  min-height: 35px;
+  border: 1px solid grey;
+  padding-top: 3px;
+  padding-bottom: 4px;
+  padding-left: 9px;
+  color: grey;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.form__input::placeholder {
+  color: grey;
+}
+
+.form__label {
+  margin-right: 70px;
+  cursor: pointer;
+}
+
+.form__required {
+  color: red;
+}
+
+.form__submit {
+  max-width: 350px;
 }

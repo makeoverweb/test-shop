@@ -13,6 +13,7 @@ interface ICartItem {
     title: string;
     description: string;
     available: number;
+    count?: number;
   };
 }
 
@@ -23,12 +24,11 @@ const CartItem = ({ data }: ICartItem) => {
   const cartData = useSelector(getCartData);
 
   return (
-    <div className="products__item product">
-      <div className="product__inner" onClick={() => setModal(true)}>
-        <img src={data.image} alt="pic" className="product__img" />
-        <span className="product__name">{data.title}</span>
+    <div className="cart__item">
+      <div className="cart__inner" onClick={() => setModal(true)}>
+        <img src={data.image} alt="pic" className="cart__img" />
+        <span className="cart__name">{data.title}</span>
       </div>
-      <span className="product__score">Доступно: {data.available}</span>
       <Button
         className="button button--delete"
         onClick={() => dispatch(deleteFromCart(data._id))}
@@ -36,6 +36,7 @@ const CartItem = ({ data }: ICartItem) => {
       >
         Удалить
       </Button>
+      <span>X{data.count}</span>
       <Modal
         visible={isModal}
         title={

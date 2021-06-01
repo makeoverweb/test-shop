@@ -13,13 +13,17 @@ interface Routes {
 }
 
 const ROUTES: Routes = {
-  ROOT: {
+  HOME: {
     ROUTE: `${ROUTE_INIT}/`,
     NAME: "home",
   },
+  PRODUCTS: {
+    ROUTE: `${ROUTE_INIT}/products`,
+    NAME: "products",
+  },
   ORDERS: {
-    ROUTE: `${ROUTE_INIT}/order`,
-    NAME: "order",
+    ROUTE: `${ROUTE_INIT}/orders`,
+    NAME: "orders",
   },
   CART: {
     ROUTE: `${ROUTE_INIT}/cart`,
