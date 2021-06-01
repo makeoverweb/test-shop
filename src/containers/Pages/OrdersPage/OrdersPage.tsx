@@ -8,7 +8,7 @@ import "./styles.css";
 
 interface IOrdersPage {
   data: {
-    _id: string;
+    id: string;
     price: string;
     image: string;
     title: string;

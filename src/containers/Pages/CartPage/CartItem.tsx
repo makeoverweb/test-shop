@@ -7,7 +7,7 @@ import { getCartData } from "store/shop/selectors";
 
 interface ICartItem {
   data: {
-    _id: string;
+    id: string;
     price: string;
     image: string;
     title: string;
@@ -31,8 +31,8 @@ const CartItem = ({ data }: ICartItem) => {
       </div>
       <Button
         className="button button--delete"
-        onClick={() => dispatch(deleteFromCart(data._id))}
-        disabled={Boolean(!cartData.find((el) => el._id === data._id))}
+        onClick={() => dispatch(deleteFromCart(data.id))}
+        disabled={Boolean(!cartData.find((el) => el.id === data.id))}
       >
         Удалить
       </Button>
@@ -60,7 +60,7 @@ const CartItem = ({ data }: ICartItem) => {
               <Button
                 className="button button--delete"
                 onClick={() => {
-                  dispatch(deleteFromCart(data._id));
+                  dispatch(deleteFromCart(data.id));
                   onCloseModal();
                 }}
               >

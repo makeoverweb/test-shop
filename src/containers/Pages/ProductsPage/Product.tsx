@@ -7,7 +7,7 @@ import { getCartData } from "store/shop/selectors";
 
 export interface IProduct {
   data: {
-    _id: string;
+    id: string;
     price: string;
     image: string;
     title: string;
@@ -26,16 +26,20 @@ const Product = ({ data }: IProduct) => {
     <div className="products__item product">
       <div className="product__inner" onClick={() => setModal(true)}>
         <img src={data.image} alt="pic" className="product__img" />
-        <span className="product__name">{data.title}</span>
       </div>
+      <span className="product__name">{data.title}</span>
       <span className="product__score">Доступно: {data.available}</span>
-      <Button className="button" onClick={() => dispatch(addToCart(data))}>
+      <Button
+        className="button"
+        onClick={() => dispatch(addToCart(data))}
+        disabled={data.available === 0}
+      >
         Добавить
       </Button>
       <Button
         className="button button--delete"
-        onClick={() => dispatch(deleteFromCart(data._id))}
-        disabled={Boolean(!cartData.find((el) => el._id === data._id))}
+        onClick={() => dispatch(deleteFromCart(data.id))}
+        disabled={Boolean(!cartData.find((el) => el.id === data.id))}
       >
         Удалить
       </Button>
@@ -67,8 +71,8 @@ const Product = ({ data }: IProduct) => {
               </Button>
               <Button
                 className="button button--delete"
-                onClick={() => dispatch(deleteFromCart(data._id))}
-                disabled={Boolean(!cartData.find((el) => el._id === data._id))}
+                onClick={() => dispatch(deleteFromCart(data.id))}
+                disabled={Boolean(!cartData.find((el) => el.id === data.id))}
               >
                 Удалить
               </Button>

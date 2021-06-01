@@ -12,6 +12,10 @@
   border-bottom: 1px solid grey;
 }
 
+.order__item:hover {
+  border-bottom: 2px solid grey;
+}
+
 .orders__user-name {
   margin-left: 30px;
   font-weight: bold;

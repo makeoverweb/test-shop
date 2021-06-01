@@ -43,7 +43,7 @@ function CartPage({}: ICartPage): ReactElement {
   const transformToUniqueItem = cartData.reduce(
     (acc, el) => ({
       ...acc,
-      [el._id]: { ...el, count: (acc[el._id]?.count || 0) + 1 },
+      [el.id]: { ...el, count: (acc[el.id]?.count || 0) + 1 },
     }),
     {}
   );
@@ -55,7 +55,7 @@ function CartPage({}: ICartPage): ReactElement {
       <div className="cart__list">
         {transformUniqueToArray.length > 0 ? (
           transformUniqueToArray.map((item: TProduct) => (
-            <CartItem data={item} key={item._id} />
+            <CartItem data={item} key={item.id} />
           ))
         ) : (
           <div>Корзина пуста ¯\_(ツ)_/¯</div>

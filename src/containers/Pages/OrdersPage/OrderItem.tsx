@@ -37,7 +37,7 @@ const OrderItem = ({ data }: IOrderItem) => {
               <p>{data.description}</p> */}
               <div className="orders__modal-list">Продукты:</div>
               {data.products.map((el) => (
-                <div key={el._id} className="orders__modal-item">
+                <div key={el.id} className="orders__modal-item">
                   {el.title} <span>{el.price}</span>
                 </div>
               ))}

@@ -9,17 +9,12 @@ import "./styles.css";
 interface IProductsPage {}
 
 function ProductsPage({}: IProductsPage): ReactElement {
-  const dispatch = useDispatch();
   const productsData = useSelector(getProductsData);
-
-  useEffect(() => {
-    dispatch(getProductsAction.request("products"));
-  }, [dispatch]);
 
   return (
     <div className="products__list">
       {productsData.map((item: TProduct) => (
-        <Product data={item} key={item._id} />
+        <Product data={item} key={item.id} />
       ))}
     </div>
   );

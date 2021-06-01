@@ -60,7 +60,7 @@ const shopReducer = createReducer<TStateShop>(initialState, {
         ...state.products,
         data: state.products.data.map((el: TProduct) => ({
           ...el,
-          available: el._id === payload._id ? el.available - 1 : el.available,
+          available: el.id === payload.id ? el.available - 1 : el.available,
         })),
       },
     };
@@ -69,7 +69,7 @@ const shopReducer = createReducer<TStateShop>(initialState, {
   // удаление товара из корзины
   [getType(deleteFromCart)]: (state, { payload }) => {
     const idxCartEl = state.cart.data.findIndex(
-      (el: TProduct) => el._id === payload
+      (el: TProduct) => el.id === payload
     );
     return {
       ...state,
@@ -88,8 +88,8 @@ const shopReducer = createReducer<TStateShop>(initialState, {
         data: state.products.data.map((item: TProduct) => ({
           ...item,
           available:
-            state.cart.data.find((el: TProduct) => el._id === payload) &&
-            item._id === payload
+            state.cart.data.find((el: TProduct) => el.id === payload) &&
+            item.id === payload
               ? item.available + 1
               : item.available,
         })),

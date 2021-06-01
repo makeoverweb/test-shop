@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from "redux-saga/effects";
+import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 import { addOrderAction, getOrdersAction, getProductsAction } from "./actions";
 import { Api } from "../../api";
 
@@ -24,15 +24,27 @@ function* addOrderSaga({ payload: { path, data } }: any): any {
   try {
     const response = yield call([Api, Api.post], path, data);
     yield put(addOrderAction.success(response));
-    console.log(`data`, data);
-    for (const orderEl of data.products) {
-      const requestData = {
-        ...orderEl,
+    const transformToUniqueItem = data.products.reduce((acc, el) => {
+      return {
+        ...acc,
+        [el.id]: {
+          available:
+            Math.min(acc[el.id]?.available || el.available, el.available) - 1,
+        },
       };
-      console.log(`requestData`, requestData);
-      yield call([Api, Api.patch], "products", requestData);
+    }, {});
+
+    for (const orderEl in transformToUniqueItem) {
+      const requestData = {
+        ...transformToUniqueItem[orderEl],
+      };
+      const updateProductsRes = yield call(
+        [Api, Api.patch],
+        `products/${orderEl}`,
+        requestData
+      );
+      yield put(addOrderAction.success(updateProductsRes));
     }
-    console.log("дошел не упал");
   } catch (error) {
     yield put(addOrderAction.failure(error));
   }

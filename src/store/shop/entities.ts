@@ -18,7 +18,7 @@ export interface TStateShop {
 }
 
 export interface TProduct {
-  _id: string;
+  id: string;
   price: string;
   image: string;
   title: string;
