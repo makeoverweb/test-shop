@@ -48,3 +48,24 @@
   right: -16px;
   position: absolute;
 }
+
+@media screen and (max-width: 992px) {
+  .header__inner {
+    flex-direction: column;
+  }
+
+  .header__logo {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 30px;
+  }
+
+  .header__menu {
+    flex-direction: column;
+  }
+
+  .header__menu a {
+    margin-bottom: 30px;
+    font-size: 32px;
+  }
+}

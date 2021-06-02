@@ -23,26 +23,28 @@ const Product = ({ data }: IProduct) => {
   const cartData = useSelector(getCartData);
 
   return (
-    <div className="products__item product">
-      <div className="product__inner" onClick={() => setModal(true)}>
-        <img src={data.image} alt="pic" className="product__img" />
+    <>
+      <div className="products__item product">
+        <div className="product__inner" onClick={() => setModal(true)}>
+          <img src={data.image} alt="pic" className="product__img" />
+        </div>
+        <span className="product__name">{data.title}</span>
+        <span className="product__score">Доступно: {data.available}</span>
+        <Button
+          className="button"
+          onClick={() => dispatch(addToCart(data))}
+          disabled={data.available === 0}
+        >
+          Добавить
+        </Button>
+        <Button
+          className="button button--delete"
+          onClick={() => dispatch(deleteFromCart(data.id))}
+          disabled={Boolean(!cartData.find((el) => el.id === data.id))}
+        >
+          Удалить
+        </Button>
       </div>
-      <span className="product__name">{data.title}</span>
-      <span className="product__score">Доступно: {data.available}</span>
-      <Button
-        className="button"
-        onClick={() => dispatch(addToCart(data))}
-        disabled={data.available === 0}
-      >
-        Добавить
-      </Button>
-      <Button
-        className="button button--delete"
-        onClick={() => dispatch(deleteFromCart(data.id))}
-        disabled={Boolean(!cartData.find((el) => el.id === data.id))}
-      >
-        Удалить
-      </Button>
       <Modal
         visible={isModal}
         title={
@@ -53,9 +55,11 @@ const Product = ({ data }: IProduct) => {
         }
         content={
           <div className="modal__content-wrapper">
-            <div className="modal__content-left"></div>
-            <div className="modal__content-right">
+            <div className="modal__content-img">
+              {" "}
               <img src={data.image} alt="pic" />
+            </div>
+            <div className="modal__content-desc">
               <p>{data.description}</p>
             </div>
           </div>
@@ -84,7 +88,7 @@ const Product = ({ data }: IProduct) => {
         }
         onClose={onCloseModal}
       />
-    </div>
+    </>
   );
 };
 

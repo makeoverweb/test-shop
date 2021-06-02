@@ -24,19 +24,21 @@ const CartItem = ({ data }: ICartItem) => {
   const cartData = useSelector(getCartData);
 
   return (
-    <div className="cart__item">
-      <div className="cart__inner" onClick={() => setModal(true)}>
-        <img src={data.image} alt="pic" className="cart__img" />
+    <>
+      <div className="cart__item">
+        <div className="cart__inner" onClick={() => setModal(true)}>
+          <img src={data.image} alt="pic" className="cart__img" />
+        </div>
         <span className="cart__name">{data.title}</span>
+        <span>X{data.count}</span>
+        <Button
+          className="button button--delete"
+          onClick={() => dispatch(deleteFromCart(data.id))}
+          disabled={Boolean(!cartData.find((el) => el.id === data.id))}
+        >
+          Удалить
+        </Button>
       </div>
-      <Button
-        className="button button--delete"
-        onClick={() => dispatch(deleteFromCart(data.id))}
-        disabled={Boolean(!cartData.find((el) => el.id === data.id))}
-      >
-        Удалить
-      </Button>
-      <span>X{data.count}</span>
       <Modal
         visible={isModal}
         title={
@@ -47,9 +49,10 @@ const CartItem = ({ data }: ICartItem) => {
         }
         content={
           <div className="modal__content-wrapper">
-            <div className="modal__content-left"></div>
-            <div className="modal__content-right">
+            <div className="modal__content-img">
               <img src={data.image} alt="pic" />
+            </div>
+            <div className="modal__content-desc">
               <p>{data.description}</p>
             </div>
           </div>
@@ -74,7 +77,7 @@ const CartItem = ({ data }: ICartItem) => {
         }
         onClose={onCloseModal}
       />
-    </div>
+    </>
   );
 };
 

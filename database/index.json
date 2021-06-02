@@ -6,7 +6,7 @@
       "image": "https://sun9-56.userapi.com/c622528/v622528597/49a85/AA-2Jb9xfYE.jpg",
       "title": "Patrica Malone",
       "description": "Pariatur voluptate reprehenderit labore occaecat sint reprehenderit dolor ea. Elit irure irure veniam esse laborum cupidatat elit excepteur in incididunt. Labore Lorem anim ad adipisicing ullamco irure qui velit ut adipisicing cupidatat et. Esse fugiat irure do nostrud sit commodo tempor consequat velit dolore ea. Eu occaecat pariatur adipisicing proident quis fugiat ad adipisicing esse aliquip officia culpa. Esse consequat laboris laborum id elit incididunt esse mollit officia quis est quis et.\r\n",
-      "available": 40
+      "available": 37
     },
     {
       "id": "60b384df3751c20e6b882843",
@@ -105,5 +105,44 @@
       "available": 10
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "products": [
+        {
+          "id": "60b384dfb51b7e02cce72dd6",
+          "price": "$1,924.38",
+          "image": "https://sun9-56.userapi.com/c622528/v622528597/49a85/AA-2Jb9xfYE.jpg",
+          "title": "Patrica Malone",
+          "description": "Pariatur voluptate reprehenderit labore occaecat sint reprehenderit dolor ea. Elit irure irure veniam esse laborum cupidatat elit excepteur in incididunt. Labore Lorem anim ad adipisicing ullamco irure qui velit ut adipisicing cupidatat et. Esse fugiat irure do nostrud sit commodo tempor consequat velit dolore ea. Eu occaecat pariatur adipisicing proident quis fugiat ad adipisicing esse aliquip officia culpa. Esse consequat laboris laborum id elit incididunt esse mollit officia quis est quis et.\r\n",
+          "available": 40
+        }
+      ],
+      "userName": "тест заказ",
+      "userPhone": "+7 (900) 000-0006",
+      "id": 1
+    },
+    {
+      "products": [
+        {
+          "id": "60b384dfb51b7e02cce72dd6",
+          "price": "$1,924.38",
+          "image": "https://sun9-56.userapi.com/c622528/v622528597/49a85/AA-2Jb9xfYE.jpg",
+          "title": "Patrica Malone",
+          "description": "Pariatur voluptate reprehenderit labore occaecat sint reprehenderit dolor ea. Elit irure irure veniam esse laborum cupidatat elit excepteur in incididunt. Labore Lorem anim ad adipisicing ullamco irure qui velit ut adipisicing cupidatat et. Esse fugiat irure do nostrud sit commodo tempor consequat velit dolore ea. Eu occaecat pariatur adipisicing proident quis fugiat ad adipisicing esse aliquip officia culpa. Esse consequat laboris laborum id elit incididunt esse mollit officia quis est quis et.\r\n",
+          "available": 39
+        },
+        {
+          "id": "60b384dfb51b7e02cce72dd6",
+          "price": "$1,924.38",
+          "image": "https://sun9-56.userapi.com/c622528/v622528597/49a85/AA-2Jb9xfYE.jpg",
+          "title": "Patrica Malone",
+          "description": "Pariatur voluptate reprehenderit labore occaecat sint reprehenderit dolor ea. Elit irure irure veniam esse laborum cupidatat elit excepteur in incididunt. Labore Lorem anim ad adipisicing ullamco irure qui velit ut adipisicing cupidatat et. Esse fugiat irure do nostrud sit commodo tempor consequat velit dolore ea. Eu occaecat pariatur adipisicing proident quis fugiat ad adipisicing esse aliquip officia culpa. Esse consequat laboris laborum id elit incididunt esse mollit officia quis est quis et.\r\n",
+          "available": 38
+        }
+      ],
+      "userName": "John",
+      "userPhone": "+7 (900) 000-0006",
+      "id": 2
+    }
+  ]
 }
